@@ -1,0 +1,5 @@
+node_modules
+dist
+focus-five.db
+.env
+.git

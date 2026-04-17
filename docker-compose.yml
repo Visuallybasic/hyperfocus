@@ -1,0 +1,20 @@
+services:
+  focus-five:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - focus-data:/data
+    environment:
+      PORT: 3000
+      NODE_ENV: production
+      DB_PATH: /data/focus-five.db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/tasks"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  focus-data:
