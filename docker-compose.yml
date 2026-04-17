@@ -2,7 +2,7 @@ services:
   focus-five:
     build: .
     ports:
-      - "8080:3000"
+      - "2222:3000"
     volumes:
       - focus-data:/data
     environment:
